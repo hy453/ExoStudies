@@ -1,0 +1,113 @@
+.how-you-learn {
+  padding: var(--space-20) 0;
+  background-color: var(--bg-primary);
+}
+
+@media (max-width: 768px) {
+  .how-you-learn {
+    padding: var(--space-16) 0;
+  }
+}
+
+.how-you-learn__container {
+  position: relative;
+}
+
+.how-you-learn__header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto var(--space-16);
+}
+
+.how-you-learn__title {
+  margin-bottom: var(--space-4);
+}
+
+.how-you-learn__subtitle {
+  font-size: var(--fs-lg);
+  color: var(--text-secondary);
+  line-height: var(--leading-relaxed);
+}
+
+.how-you-learn__grid {
+  display: grid;
+  gap: var(--space-6);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .how-you-learn__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .how-you-learn__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.how-you-learn__card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-6);
+  height: 100%;
+  animation: slideUp var(--transition-slow) var(--transition-timing) forwards;
+  opacity: 0;
+  transition: all var(--transition-normal) var(--transition-timing);
+}
+
+.how-you-learn__card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--border-medium);
+}
+
+.how-you-learn__icon-wrapper {
+  width: 56px;
+  height: 56px;
+  margin-bottom: var(--space-4);
+  flex-shrink: 0;
+}
+
+.how-you-learn__icon {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-xl);
+  background-color: var(--accent-primary-light);
+  color: var(--accent-primary);
+  border: 1px solid var(--border-medium);
+  transition: all var(--transition-normal) var(--transition-timing);
+}
+
+.how-you-learn__card:hover .how-you-learn__icon {
+  transform: scale(1.05);
+}
+
+.how-you-learn__card-title {
+  font-size: var(--fs-lg);
+  font-weight: var(--font-bold);
+  color: var(--text-primary);
+  margin-bottom: var(--space-3);
+}
+
+.how-you-learn__card-desc {
+  font-size: var(--fs-base);
+  color: var(--text-secondary);
+  line-height: var(--leading-relaxed);
+  flex: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .how-you-learn__card {
+    animation: none;
+    opacity: 1;
+  }
+
+  .how-you-learn__icon {
+    transition: none;
+  }
+}

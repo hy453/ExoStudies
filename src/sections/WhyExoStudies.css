@@ -1,0 +1,215 @@
+.why-exostudies {
+  padding: var(--space-20) 0;
+  background-color: var(--bg-primary);
+  scroll-margin-top: var(--header-height);
+}
+
+@media (max-width: 768px) {
+  .why-exostudies {
+    padding: var(--space-16) 0;
+  }
+}
+
+.why-exostudies__header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto var(--space-16);
+}
+
+.why-exostudies__title {
+  margin-bottom: var(--space-4);
+}
+
+.why-exostudies__subtitle {
+  font-size: var(--fs-lg);
+  color: var(--text-secondary);
+  line-height: var(--leading-relaxed);
+}
+
+.why-exostudies__comparison {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.why-exostudies__comparison-card {
+  padding: var(--space-6);
+  animation: slideUp var(--transition-slow) var(--transition-timing) forwards;
+  opacity: 1;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+  transition: all var(--transition-normal) var(--transition-timing);
+  transform: translateY(20px);
+}
+
+.why-exostudies__comparison-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-normal) var(--transition-timing);
+}
+
+.why-exostudies__comparison-card:hover::before {
+  transform: scaleX(1);
+}
+
+.why-exostudies__comparison-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--border-medium);
+}
+
+.why-exostudies__comparison-header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.why-exostudies__icon-wrapper {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+}
+
+.why-exostudies__icon {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-xl);
+  background-color: var(--accent-primary-light);
+  color: var(--accent-primary);
+  border: 1px solid var(--border-medium);
+  transition: all var(--transition-normal) var(--transition-timing);
+}
+
+.why-exostudies__comparison-card:hover .why-exostudies__icon {
+  transform: scale(1.05);
+}
+
+.why-exostudies__comparison-title {
+  font-size: var(--fs-xl);
+  font-weight: var(--font-bold);
+  color: var(--text-primary);
+  line-height: var(--leading-tight);
+  flex: 1;
+}
+
+.why-exostudies__comparison-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .why-exostudies__comparison-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.why-exostudies__column {
+  padding: var(--space-5);
+  border-radius: var(--radius-lg);
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  transition: all var(--transition-normal) var(--transition-timing);
+}
+
+.why-exostudies__column--average {
+  border-left: 3px solid var(--color-red-500);
+}
+
+.why-exostudies__column--exostudies {
+  border-left: 3px solid var(--accent-primary);
+  background-color: var(--accent-primary-lightest);
+}
+
+.why-exostudies__comparison-card:hover .why-exostudies__column--exostudies {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.why-exostudies__column-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.why-exostudies__column-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-1) var(--space-3);
+  font-size: var(--fs-sm);
+  font-weight: var(--font-semibold);
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
+.why-exostudies__column-badge--average {
+  background-color: var(--color-red-100);
+  color: var(--color-red-700);
+}
+
+.why-exostudies__column-badge--exostudies {
+  background-color: var(--accent-primary-light);
+  color: var(--accent-primary);
+}
+
+.why-exostudies__column-icon {
+  flex-shrink: 0;
+}
+
+.why-exostudies__column--average .why-exostudies__column-icon {
+  color: var(--color-red-500);
+}
+
+.why-exostudies__column--exostudies .why-exostudies__column-icon {
+  color: var(--accent-primary);
+}
+
+.why-exostudies__column-text {
+  font-size: var(--fs-base);
+  color: var(--text-secondary);
+  line-height: var(--leading-relaxed);
+  margin: 0;
+}
+
+@media (max-width: 430px) {
+  .why-exostudies__comparison-card {
+    padding: var(--space-4);
+  }
+
+  .why-exostudies__icon-wrapper {
+    width: 48px;
+    height: 48px;
+  }
+
+  .why-exostudies__comparison-title {
+    font-size: var(--fs-lg);
+  }
+
+  .why-exostudies__column {
+    padding: var(--space-4);
+  }
+
+  .why-exostudies__column-badge {
+    padding: var(--space-1) var(--space-2);
+    font-size: var(--fs-xs);
+  }
+
+  .why-exostudies__column-text {
+    font-size: var(--fs-sm);
+  }
+}

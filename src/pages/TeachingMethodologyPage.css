@@ -1,0 +1,269 @@
+.teaching-methodology-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.teaching-methodology-page__hero {
+  position: relative;
+  padding: calc(var(--header-height) + var(--space-16)) 0 var(--space-20);
+  overflow: hidden;
+  isolation: isolate;
+
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+  .teaching-methodology-page__hero {
+    padding: calc(var(--header-height) + var(--space-10)) 0 var(--space-16);
+  }
+}
+
+.teaching-methodology-page__hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.teaching-methodology-page__gradient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.18;
+  animation: float 22s ease-in-out infinite;
+  width: 450px;
+  height: 450px;
+  top: -120px;
+  right: -120px;
+  background: radial-gradient(circle, var(--accent-primary) 0%, transparent 70%);
+}
+
+@media (max-width: 640px) {
+  .teaching-methodology-page__gradient-orb {
+    width: 300px;
+    height: 300px;
+    top: -80px;
+    right: -80px;
+  }
+}
+
+@media (max-width: 430px) {
+  .teaching-methodology-page__gradient-orb {
+    display: none;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(25px, -25px) scale(1.03); }
+  66% { transform: translate(-15px, 15px) scale(0.97); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .teaching-methodology-page__gradient-orb {
+    animation: none;
+  }
+}
+
+.teaching-methodology-page__hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+}
+
+.teaching-methodology-page__main-title {
+  font-size: clamp(var(--fs-4xl), 5.5vw, var(--fs-6xl));
+  font-weight: var(--font-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-4);
+  color: var(--text-primary);
+}
+
+.teaching-methodology-page__subtitle {
+  font-size: var(--fs-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--text-secondary);
+  max-width: 520px;
+}
+
+.teaching-methodology-page__main {
+  flex: 1;
+  padding: var(--space-12) 0 var(--space-20);
+}
+
+.teaching-methodology-page__images {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  gap: var(--space-6);
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .teaching-methodology-page__images {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+}
+
+.teaching-methodology-page__image-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.teaching-methodology-page__image-wrapper--secondary {
+  align-self: start;
+}
+
+.teaching-methodology-page__image-btn {
+  display: block;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  transition: transform var(--transition-normal) var(--transition-timing),
+              box-shadow var(--transition-normal) var(--transition-timing);
+}
+
+.teaching-methodology-page__image-btn:hover {
+  transform: scale(1.01);
+  box-shadow: 0 20px 40px -12px rgba(59, 130, 246, 0.25);
+}
+
+.teaching-methodology-page__image-btn:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+.teaching-methodology-page__image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-medium);
+  box-shadow: var(--shadow-xl);
+  background-color: var(--bg-card);
+  object-fit: contain;
+  transition: filter var(--transition-fast) var(--transition-timing);
+}
+
+.teaching-methodology-page__image-btn:hover .teaching-methodology-page__image {
+  filter: brightness(1.02);
+}
+
+@media (max-width: 768px) {
+  .teaching-methodology-page__image {
+    border-radius: var(--radius-lg);
+  }
+}
+
+/* Lightbox Modal */
+.teaching-methodology-page__lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(8, 15, 26, 0.95);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  animation: fadeIn var(--transition-fast) var(--transition-timing) forwards;
+  padding: var(--space-4);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.teaching-methodology-page__lightbox-close {
+  position: absolute;
+  top: var(--space-6);
+  right: var(--space-6);
+  z-index: 2001;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  background-color: rgba(15, 23, 42, 0.9);
+  border: 1px solid var(--border-medium);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all var(--transition-fast) var(--transition-timing);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.teaching-methodology-page__lightbox-close:hover {
+  background-color: rgba(30, 41, 59, 0.95);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  transform: scale(1.1);
+}
+
+.teaching-methodology-page__lightbox-close:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+  .teaching-methodology-page__lightbox-close {
+    top: var(--space-4);
+    right: var(--space-4);
+    width: 44px;
+    height: 44px;
+  }
+}
+
+.teaching-methodology-page__lightbox-img {
+  max-width: 90vw;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  animation: scaleIn var(--transition-normal) var(--transition-timing) forwards;
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 430px) {
+  .teaching-methodology-page__image {
+    border-radius: var(--radius-md);
+  }
+
+  .teaching-methodology-page__lightbox-close {
+    top: var(--space-3);
+    right: var(--space-3);
+    width: 40px;
+    height: 40px;
+  }
+
+  .teaching-methodology-page__lightbox {
+    padding: var(--space-3);
+  }
+
+  .teaching-methodology-page__lightbox-img {
+    max-width: 98vw;
+    max-height: 80vh;
+  }
+}
